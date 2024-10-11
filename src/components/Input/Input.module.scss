@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem-calc(10);
+  width: 100%;
+
+  &.half {
+    width: rem-calc(320);
+  }
+
+  .label {
+    font-size: rem-calc(13);
+    font-weight: 500;
+    line-height: rem-calc(17.2);
+  }
+
+  .input {
+    height: rem-calc(42);
+    border: rem-calc(1) solid #D3D9E7;
+    border-radius: rem-calc(5);
+    width: auto;
+  }
+}
