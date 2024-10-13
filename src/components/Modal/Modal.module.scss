@@ -1,0 +1,94 @@
+.modalContainer {
+  width: rem-calc(730);
+  height: rem-calc(504);
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  border-radius: rem-calc(5);
+  position: relative;
+  z-index: 10;
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: rem-calc(90);
+    background-color: #0093dd;
+    border-radius: rem-calc(5) rem-calc(5) 0 0;
+
+    .wrapperHeader {
+      padding: rem-calc(23) rem-calc(0) rem-calc(22) rem-calc(26);
+      display: flex;
+      flex-direction: column;
+      gap: rem-calc(3);
+      color: $white;
+
+      .title {
+        font-size: rem-calc(19);
+        font-weight: 700;
+        line-height: rem-calc(25.14);
+      }
+
+      .description {
+        font-size: rem-calc(13);
+        font-weight: 500;
+        line-height: rem-calc(17.2);
+      }
+    }
+
+    .cancelIcon {
+      margin: rem-calc(37) rem-calc(30) rem-calc(38) rem-calc(0);
+      width: rem-calc(15);
+      height: rem-calc(15);
+      opacity: 70%;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+
+  .modalFooter {
+    width: rem-calc(730);
+    height: rem-calc(80);
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 rem-calc(5) rem-calc(5);
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: flex-end;
+    padding: rem-calc(18) rem-calc(29.5) rem-calc(17);
+  }
+}
+
+.overlay {
+  opacity: 0.5; // Make the form semi-transparent when dialog is open
+  pointer-events: none; // Disable interaction with the form
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: rem-calc(20);
+  column-gap: rem-calc(30);
+  padding: rem-calc(30) rem-calc(30);
+
+  .wrapperForm {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(10);
+
+    .label {
+      font-size: rem-calc(13);
+      font-weight: 500;
+      line-height: rem-calc(17.2);
+    }
+
+    .input {
+      height: rem-calc(42);
+      border: rem-calc(1) solid #d3d9e7;
+      border-radius: rem-calc(5);
+      width: rem-calc(320);
+      padding: rem-calc(13) rem-calc(13) rem-calc(12);
+    }
+  }
+}

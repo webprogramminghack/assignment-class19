@@ -1,0 +1,33 @@
+.button {
+  padding: rem_calc(13) rem_calc(20);
+  font-size: rem_calc(14);
+  font-weight: 500;
+  line-height: rem_calc(17.2);
+  color: #000000;
+  border-radius: rem_calc(5);
+  background-color: $white;
+
+  &.secondary {
+    border: #d3d9e7 1px solid;
+    &.disabled {
+      color: #d8d8d8;
+      border: 1px solid #d8d8d8;
+    }
+  }
+
+  &.primary {
+    background-color: #0093dd;
+    color: $white;
+    &.disabled {
+      background-color: #d9dcdd;
+    }
+  }
+
+  &.danger {
+    background-color: #ff1f00;
+    color: $white;
+    &.disabled {
+      background-color: #dedad9;
+    }
+  }
+}
