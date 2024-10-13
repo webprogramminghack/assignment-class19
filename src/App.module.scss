@@ -26,6 +26,11 @@
 
   .modalDialogSuccess {
     z-index: 5;
+    display: block;
+
+    &.hidden {
+      display: none;
+    }
   }
 
   .containerModal {

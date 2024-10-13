@@ -48,6 +48,7 @@ function App() {
       {/* Add your components here */}
       {/* Ensure it matches the design exactly */}
       <Button className={styles.button} onClick={() => setIsActive(true)}>Open Modal</Button>
+      
       <div className={clsx(styles.modalDialog, {[styles.hidden]: isActiveDialog === false})}>
         <Dialog
           isActive={isActiveDialog}
