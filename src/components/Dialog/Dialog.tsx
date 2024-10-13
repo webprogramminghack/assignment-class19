@@ -47,16 +47,16 @@ export const Dialog = <V extends DialogVariant>({
 }: DialogProps<V>) => {
   return (
     <div className={clsx(styles.dialog, {[styles.hidden]: isActive === false})}>
-      <div className={clsx(styles.body)}>
+      <div className={styles.body}>
         {getSrcVariant(variant)}
-        <div className={clsx(styles.content)}>
-          <h3 className={clsx(styles.title)}>{title}</h3>
-          <p className={clsx(styles.description)}>{description}</p>
+        <div className={styles.content}>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
 
-      <div className={clsx(styles.footer)}>
-        <div className={clsx(styles.content)}>
+      <div className={styles.footer}>
+        <div className={styles.content}>
 
           {/* conditional rendering, https://react.dev/learn/conditional-rendering# */}
           {variant === 'success' && (

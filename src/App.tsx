@@ -47,7 +47,7 @@ function App() {
     <div className={styles.container}>
       {/* Add your components here */}
       {/* Ensure it matches the design exactly */}
-      <Button className={clsx(styles.button)} onClick={() => setIsActive(true)}>Open Modal</Button>
+      <Button className={styles.button} onClick={() => setIsActive(true)}>Open Modal</Button>
       <Modal
         title='Create New User'
         description='Fill out the information below'

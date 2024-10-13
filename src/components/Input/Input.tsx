@@ -20,8 +20,8 @@ export const Input: FC<InputType> = ({ label, type = 'text', placeHolder, value,
 
   return (
     <div className={clsx(styles.wrapper, {[styles.half]: context === 'column'})}>
-      <label className={clsx(styles.label)} htmlFor={label}>{label}</label>
-      <input className={clsx(styles.input)} value={value} onChange={onChangeStatus} type={type} id={label} placeholder={placeHolder} />
+      <label className={styles.label} htmlFor={label}>{label}</label>
+      <input className={styles.input} value={value} onChange={onChangeStatus} type={type} id={label} placeholder={placeHolder} />
     </div>
   );
 };
