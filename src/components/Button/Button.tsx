@@ -25,7 +25,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       className={clsx(styles.button, styles[color], isDisabled && styles.disabled, className)}
-      onClick={(e) => handleClick(e)}
+      onClick={handleClick}
       disabled={isDisabled}
     >
       {children}
