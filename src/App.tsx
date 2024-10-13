@@ -40,6 +40,7 @@ function App() {
     setEmail('')
     setPassword('')
     setIsActiveDialogSuccess(true)
+    setIsDisabled(true);
   }
 
   return (
