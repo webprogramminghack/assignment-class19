@@ -14,7 +14,7 @@
 
 
 
-  .modal_header {
+  .modalHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +52,7 @@
   }
 
 
-  .modal_footer {
+  .modalFooter {
     width: rem-calc(730);
     height: rem-calc(80);
     position: absolute;

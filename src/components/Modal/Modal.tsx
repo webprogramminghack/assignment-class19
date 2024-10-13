@@ -40,7 +40,7 @@ export const Modal: FC<ModalProps> = ({
 
   return (
     <div className={clsx(styles.modal, {[styles.hidden]: isActive === false})}>
-      <div className={styles.modal_header}>
+      <div className={styles.modalHeader}>
         <div className={styles.wrapper}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>{description}</p>
@@ -48,10 +48,8 @@ export const Modal: FC<ModalProps> = ({
         <CancelIcon className={styles.cancelIcon} onClick={handleClose} />
       </div>
       <form onSubmit={handleSubmit}>
-        <div className={styles.modal_body}>
-            {children}
-        </div>
-        <div className={styles.modal_footer}>
+          {children}
+        <div className={styles.modalFooter}>
           <Button isDisabled={isDisabled} color='primary'>{confirmValue}</Button>
         </div>
       </form>
