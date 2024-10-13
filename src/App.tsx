@@ -11,7 +11,7 @@ function App() {
   // You can add the logic here
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [isActive, setIsActive] = useState<boolean>(true);
-  const [isActiveDialog, setIsActiveDialog] = useState<boolean>(false);
+  const [isActiveDialogConfirm, setIsActiveDialogConfirm] = useState<boolean>(false);
   const [isActiveDialogSuccess, setIsActiveDialogSuccess] = useState<boolean>(false);
 
   const [firstName, setFirstName] = useState<string>('');
@@ -29,11 +29,20 @@ function App() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsActiveDialog(true);
+    setIsActiveDialogConfirm(true);
   };
 
+  const handleClose = () => {
+    setIsActive(false)
+    setIsActiveDialogConfirm(false)
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setPassword('')
+  }
+
   const handleDialogConfirm = ()=> {
-    setIsActiveDialog(false)
+    setIsActiveDialogConfirm(false)
     setIsActive(false)
     setFirstName('')
     setLastName('')
@@ -48,16 +57,16 @@ function App() {
       {/* Add your components here */}
       {/* Ensure it matches the design exactly */}
       <Button className={styles.button} onClick={() => setIsActive(true)}>Open Modal</Button>
-      
-      <div className={clsx(styles.modalDialog, {[styles.hidden]: isActiveDialog === false})}>
+
+      <div className={clsx(styles.modalDialog, {[styles.hidden]: isActiveDialogConfirm === false})}>
         <Dialog
-          isActive={isActiveDialog}
+          isActive={isActiveDialogConfirm}
           title='Do you want to create a new user?'
           description='Click the create button to continue.'
           variant='info'
           confirmValue='Create'
           onConfirm={() => handleDialogConfirm()}
-          onClose={() => setIsActiveDialog(false)}
+          onClose={() => setIsActiveDialogConfirm(false)}
         />
       </div>
       <div className={clsx(styles.modalDialogSuccess, {[styles.hidden]: isActiveDialogSuccess === false})}>
@@ -79,7 +88,7 @@ function App() {
         isActive={isActive}
         isDisabled={isDisabled}
         onConfirm={(e) => handleSubmit(e)}
-        onClose={() => setIsActive(false)}
+        onClose={() => handleClose()}
       >
         <div className={styles.containerModal}>
           <Input width={20} value={firstName} onChange={setFirstName} label='First Name' />
