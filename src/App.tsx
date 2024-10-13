@@ -13,18 +13,18 @@ function App() {
   const [isActiveDialog, setIsActiveDialog] = useState<boolean>(false);
   const [isActiveDialogSuccess, setIsActiveDialogSuccess] = useState<boolean>(false);
 
-  const [FirstName, setFirstName] = useState<string>('');
-  const [LastName, setLastName] = useState<string>('');
-  const [Email, setEmail] = useState<string>('');
-  const [Password, setPassword] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
-    const value = FirstName && LastName && Email && Password;
-    if(!FirstName && !LastName && !Email && !Password) {
+    const value = firstName && lastName && email && password;
+    if(!firstName && !lastName && !email && !password) {
       return
     } 
     setIsDisabled(!value);
-  }, [FirstName, LastName, Email, Password])
+  }, [firstName, lastName, email, password])
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,10 +81,10 @@ function App() {
         }
       >
         <div className={styles.containerModal}>
-          <Input width={20} value={FirstName} onChange={setFirstName} label='First Name' />
-          <Input width={20} value={LastName} onChange={setLastName}  label='Last Name' />
-          <Input width={20} value={Email} onChange={setEmail} label='Email' type='email' />
-          <Input width={20} value={Password} onChange={setPassword} label='Password' type='password' />
+          <Input width={20} value={firstName} onChange={setFirstName} label='First Name' />
+          <Input width={20} value={lastName} onChange={setLastName}  label='Last Name' />
+          <Input width={20} value={email} onChange={setEmail} label='Email' type='email' />
+          <Input width={20} value={password} onChange={setPassword} label='Password' type='password' />
         </div>
       </Modal>
     </div>
