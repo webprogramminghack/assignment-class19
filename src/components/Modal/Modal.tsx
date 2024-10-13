@@ -4,15 +4,11 @@ import styles from './Modal.module.scss';
 import { Dialog } from '@/components/Dialog';
 import { Button } from '@/components/Button';
 import cancelIcon from '@/assets/svg/x-icon.png'
-import { DirectionProvider } from '@/context/DirectionContext';
 
-export type childrenDirectionType = 'row' | 'column';
-
-type ModalProps<T extends childrenDirectionType> = {
+type ModalProps = {
   title: string;
   description?: string;
   children: ReactNode;
-  childrenDirection: T;
 
   confirmValue: string;
   onConfirm?: (e: FormEvent<HTMLFormElement>) => void;
@@ -26,11 +22,10 @@ type ModalProps<T extends childrenDirectionType> = {
   DialogSuccess?: ReactNode;
 };
 
-export const Modal: FC<ModalProps<childrenDirectionType>> = ({
+export const Modal: FC<ModalProps> = ({
   title,
   description,
   children,
-  childrenDirection = 'column',
 
   onConfirm,
   confirmValue,
@@ -42,7 +37,7 @@ export const Modal: FC<ModalProps<childrenDirectionType>> = ({
   DialogConfirm,
   isActiveDialogConfirm = false,
   DialogSuccess,
-}: ModalProps<childrenDirectionType>) => {
+}: ModalProps) => {
 
   const handleClose = () => {
     onClose?.();
@@ -72,9 +67,7 @@ export const Modal: FC<ModalProps<childrenDirectionType>> = ({
       </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.modal_body}>
-          <DirectionProvider childrenDirection={childrenDirection}>
             {children}
-          </DirectionProvider>
         </div>
         <div className={styles.modal_footer}>
           <Button isDisabled={isDisabled} color='primary'>{confirmValue}</Button>

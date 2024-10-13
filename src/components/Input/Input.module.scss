@@ -2,12 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: rem-calc(10);
-  width: 100%;
-
-  &.half {
-    width: rem-calc(320);
-  }
-
+  
   .label {
     font-size: rem-calc(13);
     font-weight: 500;

@@ -8,4 +8,13 @@
   .button {
     position: absolute;
   }
+
+  .containerModal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: rem-calc(20);
+    column-gap: rem-calc(30);
+    padding: rem-calc(30) rem-calc(30);
+  }
 }

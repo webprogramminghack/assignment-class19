@@ -4,7 +4,6 @@ import { Modal } from '@/components/Modal';
 import { Input } from '@/components/Input';
 import { Dialog } from '@/components/Dialog';
 import { Button } from '@/components/Button';
-import clsx from 'clsx';
 
 
 function App() {
@@ -54,11 +53,9 @@ function App() {
         confirmValue='Create'
 
         isActive={isActive}
-        childrenDirection='column'
-
+        isDisabled={isDisabled}
         onConfirm={(e) => handleSubmit(e)}
         onClose={() => setIsActive(false)}
-        isDisabled={isDisabled}
 
         isActiveDialogConfirm={isActiveDialog}
         DialogConfirm={
@@ -83,10 +80,12 @@ function App() {
           />
         }
       >
-        <Input value={FirstName} onChange={setFirstName} label='First Name' />
-        <Input value={LastName} onChange={setLastName}  label='Last Name' />
-        <Input value={Email} onChange={setEmail} label='Email' type='email' />
-        <Input value={Password} onChange={setPassword} label='Password' type='password' />
+        <div className={styles.containerModal}>
+          <Input width={20} value={FirstName} onChange={setFirstName} label='First Name' />
+          <Input width={20} value={LastName} onChange={setLastName}  label='Last Name' />
+          <Input width={20} value={Email} onChange={setEmail} label='Email' type='email' />
+          <Input width={20} value={Password} onChange={setPassword} label='Password' type='password' />
+        </div>
       </Modal>
     </div>
   );
