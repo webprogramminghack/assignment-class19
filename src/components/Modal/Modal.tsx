@@ -1,9 +1,8 @@
 import { FC, FormEvent, ReactNode } from 'react';
 import clsx from 'clsx';
 import styles from './Modal.module.scss';
-import { Dialog } from '@/components/Dialog';
 import { Button } from '@/components/Button';
-import cancelIcon from '@/assets/svg/x-icon.png'
+import CancelIcon from '@/assets/svg/x-icon.svg'
 
 type ModalProps = {
   title: string;
@@ -16,10 +15,6 @@ type ModalProps = {
   
   isActive?: boolean;
   isDisabled?: boolean;
-
-  DialogConfirm?: ReactNode;
-  isActiveDialogConfirm?: boolean;
-  DialogSuccess?: ReactNode;
 };
 
 export const Modal: FC<ModalProps> = ({
@@ -33,10 +28,6 @@ export const Modal: FC<ModalProps> = ({
 
   isActive = false,
   isDisabled = true,
-
-  DialogConfirm,
-  isActiveDialogConfirm = false,
-  DialogSuccess,
 }: ModalProps) => {
 
   const handleClose = () => {
@@ -48,22 +39,13 @@ export const Modal: FC<ModalProps> = ({
   }
 
   return (
-    <>
-    <div className={styles.dialog_success}>
-      {DialogSuccess} 
-    </div>
     <div className={clsx(styles.modal, {[styles.hidden]: isActive === false})}>
-      <div className={clsx(styles.modal_dialog, {[styles.hidden]: isActiveDialogConfirm === false})}>
-        <div className={styles.content}>
-          {DialogConfirm} 
-        </div>
-      </div>
       <div className={styles.modal_header}>
         <div className={styles.wrapper}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>{description}</p>
         </div>
-        <img className={styles.cancelIcon} onClick={handleClose} src={cancelIcon} alt="Close Modal" />
+        <CancelIcon className={styles.cancelIcon} onClick={handleClose} />
       </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.modal_body}>
@@ -74,6 +56,5 @@ export const Modal: FC<ModalProps> = ({
         </div>
       </form>
     </div>
-    </>
   );
 }

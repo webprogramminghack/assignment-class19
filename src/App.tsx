@@ -4,6 +4,7 @@ import { Modal } from '@/components/Modal';
 import { Input } from '@/components/Input';
 import { Dialog } from '@/components/Dialog';
 import { Button } from '@/components/Button';
+import clsx from 'clsx';
 
 
 function App() {
@@ -47,38 +48,37 @@ function App() {
       {/* Add your components here */}
       {/* Ensure it matches the design exactly */}
       <Button className={styles.button} onClick={() => setIsActive(true)}>Open Modal</Button>
+      <div className={clsx(styles.modalDialog, {[styles.hidden]: isActiveDialog === false})}>
+        <Dialog
+          isActive={isActiveDialog}
+          title='Do you want to create a new user?'
+          description='Click the create button to continue.'
+          variant='info'
+          confirmValue='Create'
+          onConfirm={() => handleDialogConfirm()}
+          onClose={() => setIsActiveDialog(false)}
+        />
+      </div>
+      <div className={clsx(styles.modalDialogSuccess, {[styles.hidden]: isActiveDialogSuccess === false})}>
+        <Dialog
+          isActive={isActiveDialogSuccess}
+          title='Successfully created a new user'
+          description='The new user has been successfully created.'
+          variant='success'
+          confirmValue='Ok'
+          onConfirm={() => setIsActiveDialogSuccess(false)}
+        />
+      </div>
+        
+        
       <Modal
         title='Create New User'
         description='Fill out the information below'
         confirmValue='Create'
-
         isActive={isActive}
         isDisabled={isDisabled}
         onConfirm={(e) => handleSubmit(e)}
         onClose={() => setIsActive(false)}
-
-        isActiveDialogConfirm={isActiveDialog}
-        DialogConfirm={
-          <Dialog
-            isActive={isActiveDialog}
-            title='Do you want to create a new user?'
-            description='Click the create button to continue.'
-            variant='info'
-            confirmValue='Create'
-            onConfirm={() => handleDialogConfirm()}
-            onClose={() => setIsActiveDialog(false)}
-          />
-        }
-        DialogSuccess={
-          <Dialog
-            isActive={isActiveDialogSuccess}
-            title='Successfully created a new user'
-            description='The new user has been successfully created.'
-            variant='success'
-            confirmValue='Ok'
-            onConfirm={() => setIsActiveDialogSuccess(false)}
-          />
-        }
       >
         <div className={styles.containerModal}>
           <Input width={20} value={firstName} onChange={setFirstName} label='First Name' />
