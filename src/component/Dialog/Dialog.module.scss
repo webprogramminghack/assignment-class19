@@ -1,0 +1,51 @@
+.icon {
+  height: rem-calc(64);
+  width: rem-calc(64);
+}
+.dialog {
+  width: rem-calc(600);
+  height: rem-calc(215);
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  border-radius: rem-calc(5);
+  // border: rem-calc(8) 0 0 0;
+
+  .body {
+    display: flex;
+    margin-top: rem-calc(30);
+    margin-left: rem-calc(37);
+    height: rem-calc(215);
+    top: rem-calc(107);
+    gap: rem-calc(32);
+
+    .title {
+      margin-top: rem-calc(7);
+      font-size: rem-calc(19);
+      font-weight: 700;
+      line-height: rem-calc(25.14);
+      color: $black;
+    }
+
+    .subtitle {
+      margin-top: rem-calc(8);
+      font-size: rem-calc(13);
+      font-weight: 500;
+      line-height: rem-calc(17.2);
+      color: $black;
+    }
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: rem-calc(80);
+  top: rem-calc(135);
+  gap: rem-calc(20);
+  border-radius: 0 0 rem-calc(5) rem-calc(5);
+  border: rem-calc(1) 0 0 0;
+  background: #f5f5f5;
+  padding: rem-calc(18) rem-calc(31.5) rem-calc(17) 0;
+}

@@ -1,0 +1,17 @@
+.label {
+  line-height: rem-calc(17.2);
+  font-weight: 500;
+  font-size: rem-calc(13);
+  color: #000;
+}
+
+input {
+  margin-top: rem-calc(10);
+  width: rem-calc(320);
+  height: rem-calc(42);
+  border-radius: rem-calc(5);
+  border: rem-calc(1) solid #d3d9e7;
+  font-weight: 500;
+  font-size: rem-calc(13);
+  color: #000;
+}

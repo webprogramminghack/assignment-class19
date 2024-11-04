@@ -1,0 +1,64 @@
+.modal {
+  border-radius: rem-calc(5);
+  width: rem-calc(730);
+  background-color: #fff;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem-calc(90);
+    background-color: #0093dd;
+    border-radius: rem-calc(5) rem-calc(5) 0 0;
+    .icon {
+      width: rem-calc(15);
+      height: rem-calc(15);
+      margin-right: rem-calc(38);
+      cursor: pointer;
+    }
+    .headText {
+      margin: rem-calc(23) 0 rem-calc(22) rem-calc(26);
+      .title {
+        font-weight: 700;
+        font-size: rem-calc(19);
+        line-height: rem-calc(25.14);
+        color: #fff;
+      }
+      .description {
+        margin-top: rem-calc(3);
+        font-weight: 500;
+        font-size: rem-calc(13);
+        line-height: rem-calc(17.2);
+        color: #fff;
+      }
+    }
+  }
+  .main {
+    padding-bottom: rem-calc(116);
+    .contactWrapper {
+      padding: rem-calc(30);
+      .nameWrapper,
+      .emailWrapper {
+        display: flex;
+        gap: rem-calc(30);
+        margin-bottom: rem-calc(20);
+      }
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    height: rem-calc(80);
+    border-radius: 0 0 rem-calc(5) rem-calc(5);
+    background: #f5f5f5;
+    padding: rem-calc(18) rem-calc(29.5) rem-calc(17) 0;
+  }
+}
+
+.dialog {
+  z-index: 10;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
