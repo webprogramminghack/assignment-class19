@@ -1,0 +1,51 @@
+.dialog {
+  width: rem-calc(600);
+  height: rem-calc(217);
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  border-radius: rem-calc(5);
+  border: rem-calc(8) 0 0 0;
+
+  .body {
+    display: flex;
+    align-items: center;
+    margin: rem-calc(26);
+    height: rem-calc(215);
+    top: rem-calc(107);
+    gap: rem-calc(20);
+
+    .title {
+      font-size: rem-calc(19);
+      font-weight: 700;
+      line-height: rem-calc(25.14);
+      color: $black;
+    }
+  
+    .description {
+      font-size: rem-calc(13);
+      font-weight: 500;
+      line-height: rem-calc(17.2);
+      color: $black;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #D3D9E7;
+  height: rem-calc(80);
+  top: rem-calc(242);
+  gap: rem-calc(20);
+  border-radius: 0 0 rem-calc(5) rem-calc(5);
+  border: 1px 0 0 0;
+  background: #F5F5F5;
+  padding: rem-calc(18) rem-calc(29.5) rem-calc(17) rem-calc(5);
+}
+
+.icon {
+  width: rem-calc(64);
+  height: rem-calc(64);
+}

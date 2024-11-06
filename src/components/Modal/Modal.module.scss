@@ -1,0 +1,69 @@
+.modalContainer {
+  width: rem-calc(730);
+  height: rem-calc(504);
+  background-color: $white;
+  border-radius: rem-calc(5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: rem-calc(90);
+    background-color: #0093dd;
+    border-radius: rem-calc(5) rem-calc(5) 0 0;
+
+    .wrapper {
+      padding: rem-calc(23) rem-calc(0) rem-calc(22) rem-calc(26);
+      display: flex;
+      flex-direction: column;
+      gap: rem-calc(3);
+      color: $white;
+
+      .title {
+        font-size: rem-calc(19);
+        font-weight: 700;
+        line-height: rem-calc(25.14);
+      }
+
+      .description {
+        font-size: rem-calc(13);
+        font-weight: 500;
+        line-height: rem-calc(17.2);
+      }
+    }
+
+    .icon {
+      width: rem-calc(15);
+      height: rem-calc(15);
+      margin: rem-calc(37) rem-calc(30) rem-calc(38) 0;
+      opacity: 70%;
+      cursor: pointer;
+    }
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: rem-calc(20);
+    column-gap: rem-calc(30);
+    padding: rem-calc(30) rem-calc(30);
+    height: rem-calc(243.83);
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: rem-calc(80);
+    border-radius: 0 0 rem-calc(5) rem-calc(5);
+    background: #f5f5f5;
+    padding: rem-calc(18) rem-calc(29.5) rem-calc(17) 0;
+    position: absolute;
+    bottom: 0;
+  }
+}
