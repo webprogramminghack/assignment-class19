@@ -1,16 +1,33 @@
-import React, { useState } from "react"
-// import clsx from "clsx"
+import React, { useState, useEffect } from "react"
 import styles from './Modal.module.scss'
 import IconClose from '@/assets/svg/icon-close.svg'
 import { Button, Input } from "@/components"
 
 
 export const Modal: React.FC = () => {
-  // const [validForm, setValidForm] = useState<boolean>(false);
+  const [validForm, setValidForm] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const formValidation = (
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+  ): boolean => {
+    if (!firstName) return false;
+    if (!lastName) return false;
+    if (!email) return false;
+    if (!password) return false;
+    return true;
+  }
+
+  useEffect(() => {
+    const isValidForm: boolean = formValidation(firstName, lastName, email, password);
+    if (isValidForm) setValidForm(isValidForm);
+  }, [firstName, lastName, email, password])
 
   return (
     <>
@@ -50,7 +67,7 @@ export const Modal: React.FC = () => {
             />
           </div>
           <div className={styles.footer}>
-            <Button color="primary" isDisabled={false} >
+            <Button color="primary" isDisabled={!validForm} >
               Create
             </Button>
           </div>

@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   color = 'primary',
   children,
   onClick,
-  isDisabled = false
+  isDisabled
 }) => {
   return (
     <button
