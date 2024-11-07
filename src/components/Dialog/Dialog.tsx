@@ -2,23 +2,24 @@ import styles from './Dialog.module.scss';
 import React from 'react';
 import ImageSuccess from '@/assets/svg/icon-success.svg';
 import ImageInfo from '@/assets/svg/icon-info.svg';
-import ImageDanger from '@/assets/svg/icon-danger.svg';
 import { Button } from '@/components';
 
-type DialogVariant = 'success' | 'info' | 'danger';
+type DialogVariant = 'success' | 'info';
 
 type DialogProps<V extends DialogVariant = DialogVariant> = {
   title: string;
   description: string;
-  variant: V;
-  isDisabled?: V extends 'success' ? never : boolean;
+  variant: V,
+  onClose: () => void,
+  onConfirm?: () => void
 };
 
 export const Dialog = <V extends DialogVariant>({
   title,
   description,
   variant,
-  isDisabled
+  onClose,
+  onConfirm
 }: DialogProps<V>) => {
   const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
     switch (variant) {
@@ -26,8 +27,6 @@ export const Dialog = <V extends DialogVariant>({
         return <ImageSuccess className={styles.icon} />;
       case 'info':
         return <ImageInfo className={styles.icon} />;
-      case 'danger':
-        return <ImageDanger className={styles.icon} />;
       default: {
         const _exhaustiveCheck: never = variant;
         throw new Error(`Unhandled variant: ${_exhaustiveCheck}`);
@@ -45,16 +44,20 @@ export const Dialog = <V extends DialogVariant>({
         </div>
       </div>
       <div className={styles.footer}>
-        <Button color='secondary' disabled={isDisabled}>
+        <Button
+          color='secondary'
+          onClick={onClose}
+        >
           { variant === 'success' ? 'OK' : 'Cancel' }
         </Button>
         {
           variant === 'info' &&
-          <Button color='primary' disabled={isDisabled}>Create</Button>
-        }
-        {
-          variant === 'danger' &&
-          <Button color='danger' disabled={isDisabled}>Delete</Button>
+          <Button
+            color='primary'
+            onClick={onConfirm}
+          >
+            Create
+          </Button>
         }
       </div>
     </div>

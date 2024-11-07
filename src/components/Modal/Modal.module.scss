@@ -54,7 +54,7 @@
     padding: rem-calc(30) rem-calc(30);
     height: rem-calc(243.83);
   }
-  
+
   .footer {
     display: flex;
     justify-content: flex-end;
@@ -66,4 +66,21 @@
     position: absolute;
     bottom: 0;
   }
+}
+
+.dialogContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
 }

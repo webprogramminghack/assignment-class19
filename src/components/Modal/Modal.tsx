@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react"
 import styles from './Modal.module.scss'
+import clsx from "clsx"
 import IconClose from '@/assets/svg/icon-close.svg'
-import { Button, Input } from "@/components"
+import { Button, Input, Dialog } from "@/components"
 
 
 export const Modal: React.FC = () => {
+  const [modalActive, setModalActive] = useState<boolean>(true);
+  const [dialogInfoActive, setDialogInfoActive] = useState<boolean>(false);
+  const [dialogSuccessActive, setDialogSuccessActive] = useState<boolean>(false);
   const [validForm, setValidForm] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
@@ -29,17 +33,43 @@ export const Modal: React.FC = () => {
     if (isValidForm) setValidForm(isValidForm);
   }, [firstName, lastName, email, password])
 
+  const closeModal = () => setModalActive(false);
+  const cancelDialog = () => setDialogInfoActive(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setDialogInfoActive(true);
+  }
+
+  const handleCreateButton = () => {
+    setDialogInfoActive(false);
+    setModalActive(false);
+    setDialogSuccessActive(true);
+  }
+  
+  const handleOkButton = () => {
+    setDialogSuccessActive(false);
+    setModalActive(true);
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+  }
+
   return (
     <>
-      <div className={styles.modalContainer}>
+      <div className={clsx(
+        styles.modalContainer,
+        { [styles.hidden] : modalActive === false }
+      )}>
         <div className={styles.header}>
           <div className={styles.wrapper}>
             <p className={styles.title}>Create new user</p>
             <p className={styles.description}>Fill out the information below</p>
           </div>
-          <IconClose className={styles.icon} />
+          <IconClose className={styles.icon} onClick={closeModal} />
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.formContainer}>
             <Input
               title="First Name"
@@ -72,6 +102,28 @@ export const Modal: React.FC = () => {
             </Button>
           </div>
         </form>
+      </div>
+      <div className={clsx(
+        styles.dialogContainer,
+        { [styles.hidden] : dialogInfoActive === false }
+      )}>
+        <Dialog
+          variant="info"
+          title="Do you want to create a new user?"
+          description="Click the create button to continue."
+          onClose={cancelDialog}
+          onConfirm={handleCreateButton}
+        />
+      </div>
+      <div className={clsx(
+        { [styles.hidden] : dialogSuccessActive === false }
+      )}>
+        <Dialog
+          variant="success"
+          title="Successfully created a new user"
+          description="The new user has been successfully created."
+          onClose={handleOkButton}
+        />
       </div>
     </>
   )
