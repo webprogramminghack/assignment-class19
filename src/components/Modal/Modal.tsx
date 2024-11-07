@@ -54,6 +54,7 @@ export const Modal: React.FC = () => {
     setLastName('');
     setEmail('');
     setPassword('');
+    setValidForm(false);
   }
 
   return (
