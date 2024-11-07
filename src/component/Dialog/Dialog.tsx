@@ -14,6 +14,7 @@ type DialogProps = {
   isDisabled?: boolean;
   className?: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onConfirm?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const getIcon = (type: DialogProps['variant']) => {
@@ -36,6 +37,8 @@ export const Dialog: React.FC<DialogProps> = ({
   title,
   subtitle,
   isDisabled,
+  onClick,
+  onConfirm,
 }) => {
   return (
     <div className={clsx(styles.dialog)}>
@@ -47,11 +50,12 @@ export const Dialog: React.FC<DialogProps> = ({
         </div>
       </div>
       <div className={clsx(styles.buttonWrapper)}>
-        <Button color='secondary' disabled={isDisabled}>
+        <Button onClick={onClick} color='secondary' disabled={isDisabled}>
           {variant === 'success' ? 'OK' : 'Cancel'}
         </Button>
         {variant === 'success' || (
           <Button
+            onClick={onConfirm}
             color={variant === 'info' ? 'primary' : 'danger'}
             disabled={isDisabled}
           >
