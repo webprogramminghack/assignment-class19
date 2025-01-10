@@ -32,6 +32,8 @@ export const Modal: React.FC<modalProps> = ({ onConfirm }) => {
   useEffect(() => {
     if (firstName && lastName && email && password) {
       setDisabled(false);
+    } else {
+      setDisabled(true);
     }
   }, [firstName, lastName, email, password]);
 
