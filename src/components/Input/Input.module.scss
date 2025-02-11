@@ -1,0 +1,19 @@
+.wrapperInput {
+  display: flex;
+  flex-direction: column;
+  gap: rem-calc(10);
+
+  .label {
+    font-size: rem-calc(13);
+    font-weight: 500;
+    line-height: rem-calc(17.2);
+  }
+
+  .input {
+    height: rem-calc(42);
+    border: rem-calc(1) solid #d3d9e7;
+    border-radius: rem-calc(5);
+    width: rem-calc(320);
+    padding: rem-calc(13) rem-calc(13) rem-calc(12);
+  }
+}
